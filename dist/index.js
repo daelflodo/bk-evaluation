@@ -21,6 +21,9 @@ app.use(express_1.default.json());
 app.use((0, morgan_1.default)('dev'));
 app.use((0, cors_1.default)());
 (0, db_1.default)();
+app.get('/', (req, res) => {
+    res.status(200).send({ message: 'Hello Word!' });
+});
 app.use('/api', routes_1.default);
 app.use(errorMiddleware_1.errorHandler);
 app.listen(config_1.PORT, () => {
